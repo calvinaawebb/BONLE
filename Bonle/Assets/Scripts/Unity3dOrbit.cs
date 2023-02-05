@@ -22,6 +22,7 @@ public class Unity3dOrbit : MonoBehaviour
     float y = 0.0f;
 
     bool orbitable;
+    bool move;
 
     // Use this for initialization
     void Start()
@@ -39,37 +40,59 @@ public class Unity3dOrbit : MonoBehaviour
         }
     }
 
+    void Update() { 
+        RaycastHit hit;
+        if (Physics.Linecast(target.position, transform.position, out hit))
+        {
+            distance -= hit.distance;
+        }
+    }
+
     void LateUpdate()
     {
-        distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
+        distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 50, distanceMin, distanceMax);
         if (Input.GetMouseButtonDown(0))
+        {
             orbitable = true;
-        else if (Input.GetMouseButtonUp(0))
+            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) 
+            {
+                move = true;
+            } 
+            else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+            {
+                move = false;
+            }
+        }
+        else if (Input.GetMouseButtonUp(0)) 
+        {
             orbitable = false;
+        }
 
         if (orbitable)
         {
             if (target)
             {
-                x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
-                y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
-
-                y = ClampAngle(y, yMinLimit, yMaxLimit);
-
-                Quaternion rotation = Quaternion.Euler(y, x, 0);
-
-                RaycastHit hit;
-                if (Physics.Linecast(target.position, transform.position, out hit))
+                if (move)
                 {
-                    distance -= hit.distance;
+                    Debug.Log(move);
+                    x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
+                    y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
                 }
-                Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
-                Vector3 position = rotation * negDistance + target.position;
+                else 
+                {
+                    x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
+                    y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-                transform.rotation = rotation;
-                transform.position = position;
+                    y = ClampAngle(y, yMinLimit, yMaxLimit);
+                }
             }
         }
+        Quaternion rotation = Quaternion.Euler(y, x, 0);
+
+        Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
+        Vector3 position = rotation * negDistance + target.position;
+        transform.rotation = rotation;
+        transform.position = position;
     }
 
     public static float ClampAngle(float angle, float min, float max)
