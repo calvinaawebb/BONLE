@@ -1476,8 +1476,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1078004472}
-  - component: {fileID: 1078004473}
-  - component: {fileID: 1078004474}
+  - component: {fileID: 1078004475}
+  - component: {fileID: 1078004476}
   m_Layer: 0
   m_Name: Input
   m_TagString: Untagged
@@ -1500,7 +1500,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1078004473
+--- !u!114 &1078004475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1509,7 +1509,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1078004470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afde1e854e5a2004782f75913a1fac64, type: 3}
+  m_Script: {fileID: 11500000, guid: 985de0a78c506254691720b00ff96a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 2011351443}
@@ -1521,6 +1521,7 @@ MonoBehaviour:
   skeleton: {fileID: 5713299738411439876}
   resetSkeleton: {fileID: 4900593126301289918}
   num: 0
+  graph: {fileID: 1078004476}
   Main: {fileID: 2072666628}
   GameOver: {fileID: 857703580}
   farthest: {fileID: 2100000, guid: 15e072d9c82fd0344a2d7f400ec63624, type: 2}
@@ -1530,7 +1531,7 @@ MonoBehaviour:
   closer: {fileID: 2100000, guid: 1a67e2e3b4179e342abb1cfe8fd8e1ba, type: 2}
   closest: {fileID: 2100000, guid: a4ad5b5d7b67f36489d5d21a173394a9, type: 2}
   based: {fileID: 2100000, guid: 7d0fba09299c36b4a912b670d4b2595c, type: 2}
---- !u!114 &1078004474
+--- !u!114 &1078004476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1542,24 +1543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c341fb16a112448bc148457e7d4a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 0}
-  skeleB: {fileID: 0}
-  skeleA: {fileID: 0}
-  bone: {fileID: 0}
-  tBone: {fileID: 0}
-  randB: {fileID: 0}
-  skeleton: {fileID: 0}
-  resetSkeleton: {fileID: 0}
-  num: 0
-  Main: {fileID: 0}
-  GameOver: {fileID: 0}
-  farthest: {fileID: 0}
-  farther: {fileID: 0}
-  far: {fileID: 0}
-  close: {fileID: 0}
-  closer: {fileID: 0}
-  closest: {fileID: 0}
-  based: {fileID: 0}
 --- !u!1 &1095102511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2574,8 +2557,8 @@ MonoBehaviour:
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1078004473}
-        m_TargetAssemblyTypeName: easyTrex, Assembly-CSharp
+      - m_Target: {fileID: 1078004475}
+        m_TargetAssemblyTypeName: colorize, Assembly-CSharp
         m_MethodName: activate
         m_Mode: 1
         m_Arguments:
@@ -2755,8 +2738,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1078004473}
-        m_TargetAssemblyTypeName: easyTrex, Assembly-CSharp
+      - m_Target: {fileID: 1078004475}
+        m_TargetAssemblyTypeName: colorize, Assembly-CSharp
         m_MethodName: Retry
         m_Mode: 1
         m_Arguments:
