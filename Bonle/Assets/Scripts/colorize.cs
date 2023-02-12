@@ -32,17 +32,25 @@ public class colorize : MonoBehaviour
     public Canvas GameOver;
 
 
-    // materials
-    public Material farthest;
-    public Material farther;
-    public Material far;
-    public Material close;
-    public Material closer;
-    public Material closest;
-    public Material based;
+    // material.colors
+    private Color farthest;
+    private Color farther;
+    private Color far;
+    private Color close;
+    private Color closer;
+    private Color closest;
+    private Color based;
 
     void Start()
     {
+        ColorUtility.TryParseHtmlString("#FFC8C8", out farthest);
+        ColorUtility.TryParseHtmlString("#FFAAAA", out farther);
+        ColorUtility.TryParseHtmlString("#FF5353", out far);
+        ColorUtility.TryParseHtmlString("#FF0000", out close);
+        ColorUtility.TryParseHtmlString("#B40000", out closer);
+        ColorUtility.TryParseHtmlString("#6F0000", out closest);
+        ColorUtility.TryParseHtmlString("#FFFFFF", out based);
+
         // Random Bone(randB) to use as target bone(tBone) using random number(num)
         num = UnityEngine.Random.Range(0, skeleton.transform.childCount);
         randB = skeleton.transform.GetChild(num);
@@ -69,13 +77,13 @@ public class colorize : MonoBehaviour
             {
                 try
                 {
-                    child.GetComponent<MeshRenderer>().material = based;
+                    child.GetComponent<MeshRenderer>().material.color = based;
                 }
                 catch (Exception e)
                 {
                     foreach (Transform children in child)
                     {
-                        children.GetComponent<MeshRenderer>().material = based;
+                        children.GetComponent<MeshRenderer>().material.color = based;
                     }
                 }
             }
@@ -163,27 +171,27 @@ public class colorize : MonoBehaviour
                 try {
                     if (shortestdistance[guess.Name] <= 1.5)
                     {
-                        skeleB.GetComponent<MeshRenderer>().material = closest;
+                        skeleB.GetComponent<MeshRenderer>().material.color = closest;
                     }
                     else if (shortestdistance[guess.Name] > 1.5 && shortestdistance[guess.Name] <= 2.5)
                     {
-                        skeleB.GetComponent<MeshRenderer>().material = closer;
+                        skeleB.GetComponent<MeshRenderer>().material.color = closer;
                     }
                     else if (shortestdistance[guess.Name] > 2.5 && shortestdistance[guess.Name] <= 3.5)
                     {
-                        skeleB.GetComponent<MeshRenderer>().material = close;
+                        skeleB.GetComponent<MeshRenderer>().material.color = close;
                     }
                     else if (shortestdistance[guess.Name] > 3.5 && shortestdistance[guess.Name] <= 4.5)
                     {
-                        skeleB.GetComponent<MeshRenderer>().material = far;
+                        skeleB.GetComponent<MeshRenderer>().material.color = far;
                     }
                     else if (shortestdistance[guess.Name] > 4.5 && shortestdistance[guess.Name] <= 6)
                     {
-                        skeleB.GetComponent<MeshRenderer>().material = farther;
+                        skeleB.GetComponent<MeshRenderer>().material.color = farther;
                     }
                     else if (shortestdistance[guess.Name] > 6)
                     {
-                        skeleB.GetComponent<MeshRenderer>().material = farthest;
+                        skeleB.GetComponent<MeshRenderer>().material.color = farthest;
                     }
                 }
                 catch (Exception e)  
@@ -193,27 +201,27 @@ public class colorize : MonoBehaviour
                         skeleA = skeleB.transform.GetChild(i);
                         if (shortestdistance[guess.Name] <= 1.5)
                         {
-                            skeleA.GetComponent<MeshRenderer>().material = closest;
+                            skeleA.GetComponent<MeshRenderer>().material.color = closest;
                         }
                         else if (shortestdistance[guess.Name] > 1.5 && shortestdistance[guess.Name] <= 2.5)
                         {
-                            skeleA.GetComponent<MeshRenderer>().material = closer;
+                            skeleA.GetComponent<MeshRenderer>().material.color = closer;
                         }
                         else if (shortestdistance[guess.Name] > 2.5 && shortestdistance[guess.Name] <= 3.5)
                         {
-                            skeleA.GetComponent<MeshRenderer>().material = close;
+                            skeleA.GetComponent<MeshRenderer>().material.color = close;
                         }
                         else if (shortestdistance[guess.Name] > 3.5 && shortestdistance[guess.Name] <= 4.5)
                         {
-                            skeleA.GetComponent<MeshRenderer>().material = far;
+                            skeleA.GetComponent<MeshRenderer>().material.color = far;
                         }
                         else if (shortestdistance[guess.Name] > 4.5 && shortestdistance[guess.Name] <= 6)
                         {
-                            skeleA.GetComponent<MeshRenderer>().material = farther;
+                            skeleA.GetComponent<MeshRenderer>().material.color = farther;
                         }
                         else if (shortestdistance[guess.Name] > 6)
                         {
-                            skeleA.GetComponent<MeshRenderer>().material = farthest;
+                            skeleA.GetComponent<MeshRenderer>().material.color = farthest;
                         }
                     }
                 }

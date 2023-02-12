@@ -12,12 +12,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Selection.unity
     guid: 77e38a47abaeb2a45b6e0dcaf1ea45a7
   - enabled: 1
-    path: Assets/Scenes/Easy Difficulties/HUMAN_EASY.unity
+    path: Assets/Scenes/Easy/HUMAN_EASY.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Easy Difficulties/CAT_EASY.unity
+    path: Assets/Scenes/Easy/CAT_EASY.unity
     guid: cdba139cc704ceb4287e068ea6693cf4
   - enabled: 1
-    path: Assets/Scenes/Easy Difficulties/TREX_EASY.unity
+    path: Assets/Scenes/Easy/TREX_EASY.unity
     guid: 5bd628405a5c1a64c9c68dfd7af49f21
+  - enabled: 1
+    path: Assets/Scenes/Difficulties.unity
+    guid: f334f21ca6ea667498947059558e451c
+  - enabled: 1
+    path: Assets/Scenes/Normal/CAT_NORMAL.unity
+    guid: f71b3e7a2d713854c86cab2abc84b19b
+  - enabled: 1
+    path: Assets/Scenes/Normal/HUMAN_NORMAL.unity
+    guid: 5710e56e5f78cf449b791ff051bbd08d
+  - enabled: 1
+    path: Assets/Scenes/Normal/TREX_NORMAL.unity
+    guid: d25b2376898cd2f4496860ea7b349e65
   m_configObjects: {}

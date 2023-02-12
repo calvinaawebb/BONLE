@@ -9,12 +9,17 @@ public class normalTrex : graphClass
 {
     void Start()
     {
-        GraphNode head = new GraphNode("skull");
-        node_list.Add(head);
+        GraphNode cranium = new GraphNode("cranium");
+        node_list.Add(cranium);
+
+        GraphNode mandible = new GraphNode("mandible");
+        cranium.AddConnection(mandible);
+        valuePairs.Add(cranium.Name + mandible.Name, 1.0);
+        node_list.Add(mandible);
 
         GraphNode uSpine = new GraphNode("spine");
-        head.AddConnection(uSpine);
-        valuePairs.Add(head.Name + uSpine.Name, 1.0);
+        cranium.AddConnection(uSpine);
+        valuePairs.Add(cranium.Name + uSpine.Name, 1.0);
         node_list.Add(uSpine);
 
         GraphNode lSpine = new GraphNode("spine l");
@@ -26,6 +31,11 @@ public class normalTrex : graphClass
         uSpine.AddConnection(ribcage);
         valuePairs.Add(uSpine.Name + ribcage.Name, 1.0);
         node_list.Add(ribcage);
+
+        GraphNode gastralia = new GraphNode("gastralia");
+        ribcage.AddConnection(gastralia);
+        valuePairs.Add(ribcage.Name + gastralia.Name, 1.0);
+        node_list.Add(gastralia);
 
         GraphNode furcula = new GraphNode("furcula");
         ribcage.AddConnection(furcula);
@@ -51,14 +61,21 @@ public class normalTrex : graphClass
         valuePairs.Add(rScapula.Name + rHumerus.Name, 1.0);
         node_list.Add(rHumerus);
 
-        GraphNode rForearm = new GraphNode("forearm r");
-        rHumerus.AddConnection(rForearm);
-        valuePairs.Add(rHumerus.Name + rForearm.Name, 1.0);
-        node_list.Add(rForearm);
+        GraphNode rUlna = new GraphNode("ulna r");
+        rHumerus.AddConnection(rUlna);
+        valuePairs.Add(rHumerus.Name + rUlna.Name, 1.0);
+        node_list.Add(rUlna);
+
+        GraphNode rRadius = new GraphNode("radius r");
+        rHumerus.AddConnection(rRadius);
+        valuePairs.Add(rHumerus.Name + rRadius.Name, 1.0);
+        node_list.Add(rRadius);
 
         GraphNode rClaw = new GraphNode("claw r");
-        rForearm.AddConnection(rClaw);
-        valuePairs.Add(rForearm.Name + rClaw.Name, 1.0);
+        rUlna.AddConnection(rClaw);
+        valuePairs.Add(rUlna.Name + rClaw.Name, 1.0);
+        rRadius.AddConnection(rClaw);
+        valuePairs.Add(rRadius.Name + rClaw.Name, 1.0);
         node_list.Add(rClaw);
 
         GraphNode lHumerus = new GraphNode("humerus l");
@@ -66,14 +83,21 @@ public class normalTrex : graphClass
         valuePairs.Add(lScapula.Name + lHumerus.Name, 1.0);
         node_list.Add(lHumerus);
 
-        GraphNode lForearm = new GraphNode("forearm l");
-        lHumerus.AddConnection(lForearm);
-        valuePairs.Add(lHumerus.Name + lForearm.Name, 1.0);
-        node_list.Add(lForearm);
+        GraphNode lUlna = new GraphNode("ulna l");
+        lHumerus.AddConnection(lUlna);
+        valuePairs.Add(lHumerus.Name + lUlna.Name, 1.0);
+        node_list.Add(lUlna);
+
+        GraphNode lRadius = new GraphNode("radius l");
+        lHumerus.AddConnection(lRadius);
+        valuePairs.Add(lHumerus.Name + lRadius.Name, 1.0);
+        node_list.Add(lRadius);
 
         GraphNode lClaw = new GraphNode("claw l");
-        lForearm.AddConnection(lClaw);
-        valuePairs.Add(lForearm.Name + lClaw.Name, 1.0);
+        lUlna.AddConnection(lClaw);
+        valuePairs.Add(lUlna.Name + lClaw.Name, 1.0);
+        lRadius.AddConnection(lClaw);
+        valuePairs.Add(lRadius.Name + lClaw.Name, 1.0);
         node_list.Add(lClaw);
 
         GraphNode sacrum = new GraphNode("sacrum");
@@ -116,14 +140,19 @@ public class normalTrex : graphClass
         valuePairs.Add(pubis.Name + rFemur.Name, 1.0);
         node_list.Add(rFemur);
 
-        GraphNode rCalf = new GraphNode("calf r");
-        rFemur.AddConnection(rCalf);
-        valuePairs.Add(rFemur.Name + rCalf.Name, 1.0);
-        node_list.Add(rCalf);
+        GraphNode rTibia = new GraphNode("tibia r");
+        rFemur.AddConnection(rTibia);
+        valuePairs.Add(rFemur.Name + rTibia.Name, 1.0);
+        node_list.Add(rTibia);
+
+        GraphNode rFibula = new GraphNode("fibula r");
+        rTibia.AddConnection(rFibula);
+        valuePairs.Add(rTibia.Name + rFibula.Name, 1.0);
+        node_list.Add(rFibula);
 
         GraphNode rFoot = new GraphNode("foot r");
-        rCalf.AddConnection(rFoot);
-        valuePairs.Add(rCalf.Name + rFoot.Name, 1.0);
+        rTibia.AddConnection(rFoot);
+        valuePairs.Add(rTibia.Name + rFoot.Name, 1.0);
         node_list.Add(rFoot);
 
         GraphNode lFemur = new GraphNode("femur l");
@@ -135,14 +164,19 @@ public class normalTrex : graphClass
         valuePairs.Add(pubis.Name + lFemur.Name, 1.0);
         node_list.Add(lFemur);
 
-        GraphNode lCalf = new GraphNode("calf l");
-        lFemur.AddConnection(lCalf);
-        valuePairs.Add(lFemur.Name + lCalf.Name, 1.0);
-        node_list.Add(lCalf);
+        GraphNode lTibia = new GraphNode("tibia l");
+        lFemur.AddConnection(lTibia);
+        valuePairs.Add(lFemur.Name + lTibia.Name, 1.0);
+        node_list.Add(lTibia);
+
+        GraphNode lFibula = new GraphNode("fibula l");
+        lTibia.AddConnection(lFibula);
+        valuePairs.Add(lTibia.Name + lFibula.Name, 1.0);
+        node_list.Add(lFibula);
 
         GraphNode lFoot = new GraphNode("foot l");
-        lCalf.AddConnection(lFoot);
-        valuePairs.Add(lCalf.Name + lFoot.Name, 1.0);
+        lTibia.AddConnection(lFoot);
+        valuePairs.Add(lTibia.Name + lFoot.Name, 1.0);
         node_list.Add(lFoot);
     }
 }

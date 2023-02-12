@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 364354477}
   - component: {fileID: 364354476}
   m_Layer: 0
-  m_Name: CAT_EASY
+  m_Name: CAT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -494,7 +494,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7a2abad8ea1a04cb89706851cd0983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: CAT_EASY
+  scene: Difficulties
+  diffInp: 
   transistion: {fileID: 1597370562}
 --- !u!4 &364354477
 Transform:
@@ -662,7 +663,7 @@ GameObject:
   - component: {fileID: 582634519}
   - component: {fileID: 582634518}
   m_Layer: 0
-  m_Name: HUMAN_EASY
+  m_Name: HUMAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,7 +681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7a2abad8ea1a04cb89706851cd0983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: HUMAN_EASY
+  scene: Difficulties
+  diffInp: 
   transistion: {fileID: 1597370562}
 --- !u!4 &582634519
 Transform:
@@ -1071,7 +1073,7 @@ GameObject:
   - component: {fileID: 1385185550}
   - component: {fileID: 1385185549}
   m_Layer: 0
-  m_Name: TREX_EASY
+  m_Name: TREX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1089,7 +1091,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7a2abad8ea1a04cb89706851cd0983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: TREX_EASY
+  scene: Difficulties
+  diffInp: 
   transistion: {fileID: 1597370562}
 --- !u!4 &1385185550
 Transform:
