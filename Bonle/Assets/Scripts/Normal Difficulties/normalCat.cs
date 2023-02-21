@@ -9,12 +9,17 @@ public class normalCat : graphClass
 {
     void Start()
     {
-        GraphNode head = new GraphNode("skull");
-        node_list.Add(head);
+        GraphNode cranium = new GraphNode("cranium");
+        node_list.Add(cranium);
+
+        GraphNode mandible = new GraphNode("mandible");
+        cranium.AddConnection(mandible);
+        valuePairs.Add(cranium.Name + mandible.Name, 1.0);
+        node_list.Add(mandible);
 
         GraphNode uSpine = new GraphNode("spine");
-        head.AddConnection(uSpine);
-        valuePairs.Add(head.Name + uSpine.Name, 1.0);
+        cranium.AddConnection(uSpine);
+        valuePairs.Add(cranium.Name + uSpine.Name, 1.0);
         node_list.Add(uSpine);
 
         GraphNode lSpine = new GraphNode("spine l");
@@ -27,28 +32,19 @@ public class normalCat : graphClass
         valuePairs.Add(uSpine.Name + ribcage.Name, 1.0);
         node_list.Add(ribcage);
 
-        GraphNode rClavicle = new GraphNode("clavicle r");
-        ribcage.AddConnection(rClavicle);
-        valuePairs.Add(ribcage.Name + rClavicle.Name, 1.0);
-        node_list.Add(rClavicle);
+        GraphNode xiphisternum = new GraphNode("xiphisternum");
+        ribcage.AddConnection(xiphisternum);
+        valuePairs.Add(ribcage.Name + xiphisternum.Name, 1.0);
+        node_list.Add(xiphisternum);
 
         GraphNode rScapula = new GraphNode("scapula r");
         ribcage.AddConnection(rScapula);
         valuePairs.Add(ribcage.Name + rScapula.Name, 1.0);
-        rClavicle.AddConnection(rScapula);
-        valuePairs.Add(rClavicle.Name + rScapula.Name, 1.0);
         node_list.Add(rScapula);
-
-        GraphNode lClavicle = new GraphNode("clavicle l");
-        ribcage.AddConnection(lClavicle);
-        valuePairs.Add(ribcage.Name + lClavicle.Name, 1.0);
-        node_list.Add(lClavicle);
 
         GraphNode lScapula = new GraphNode("scapula l");
         ribcage.AddConnection(lScapula);
         valuePairs.Add(ribcage.Name + lScapula.Name, 1.0);
-        lClavicle.AddConnection(lScapula);
-        valuePairs.Add(lClavicle.Name + lScapula.Name, 1.0);
         node_list.Add(lScapula);
 
         GraphNode rHumerus = new GraphNode("humerus r");
@@ -56,14 +52,21 @@ public class normalCat : graphClass
         valuePairs.Add(rScapula.Name + rHumerus.Name, 1.0);
         node_list.Add(rHumerus);
 
-        GraphNode rForearm = new GraphNode("forearm r");
-        rHumerus.AddConnection(rForearm);
-        valuePairs.Add(rHumerus.Name + rForearm.Name, 1.0);
-        node_list.Add(rForearm);
+        GraphNode rUlna = new GraphNode("ulna r");
+        rHumerus.AddConnection(rUlna);
+        valuePairs.Add(rHumerus.Name + rUlna.Name, 1.0);
+        node_list.Add(rUlna);
+
+        GraphNode rRadius = new GraphNode("radius r");
+        rHumerus.AddConnection(rRadius);
+        valuePairs.Add(rHumerus.Name + rRadius.Name, 1.0);
+        node_list.Add(rRadius);
 
         GraphNode rfFoot = new GraphNode("foot rf");
-        rForearm.AddConnection(rfFoot);
-        valuePairs.Add(rForearm.Name + rfFoot.Name, 1.0);
+        rUlna.AddConnection(rfFoot);
+        valuePairs.Add(rUlna.Name + rfFoot.Name, 1.0);
+        rRadius.AddConnection(rfFoot);
+        valuePairs.Add(rRadius.Name + rfFoot.Name, 1.0);
         node_list.Add(rfFoot);
 
         GraphNode lHumerus = new GraphNode("humerus l");
@@ -71,14 +74,21 @@ public class normalCat : graphClass
         valuePairs.Add(lScapula.Name + lHumerus.Name, 1.0);
         node_list.Add(lHumerus);
 
-        GraphNode lForearm = new GraphNode("forearm l");
-        lHumerus.AddConnection(lForearm);
-        valuePairs.Add(lHumerus.Name + lForearm.Name, 1.0);
-        node_list.Add(lForearm);
+        GraphNode lUlna = new GraphNode("ulna l");
+        lHumerus.AddConnection(lUlna);
+        valuePairs.Add(lHumerus.Name + lUlna.Name, 1.0);
+        node_list.Add(lUlna);
+
+        GraphNode lRadius = new GraphNode("radius l");
+        lHumerus.AddConnection(lRadius);
+        valuePairs.Add(lHumerus.Name + lRadius.Name, 1.0);
+        node_list.Add(lRadius);
 
         GraphNode lfFoot = new GraphNode("foot lf");
-        lForearm.AddConnection(lfFoot);
-        valuePairs.Add(lForearm.Name + lfFoot.Name, 1.0);
+        lUlna.AddConnection(lfFoot);
+        valuePairs.Add(lUlna.Name + lfFoot.Name, 1.0);
+        lRadius.AddConnection(lfFoot);
+        valuePairs.Add(lRadius.Name + lfFoot.Name, 1.0);
         node_list.Add(lfFoot);
 
         GraphNode sacrum = new GraphNode("sacrum");
@@ -101,14 +111,19 @@ public class normalCat : graphClass
         valuePairs.Add(pelvis.Name + rFemur.Name, 1.0);
         node_list.Add(rFemur);
 
-        GraphNode rCalf = new GraphNode("calf r");
-        rFemur.AddConnection(rCalf);
-        valuePairs.Add(rFemur.Name + rCalf.Name, 1.0);
-        node_list.Add(rCalf);
+        GraphNode rTibia = new GraphNode("tibia r");
+        rFemur.AddConnection(rTibia);
+        valuePairs.Add(rFemur.Name + rTibia.Name, 1.0);
+        node_list.Add(rTibia);
 
-        GraphNode rbFoot = new GraphNode("foot rb");
-        rCalf.AddConnection(rbFoot);
-        valuePairs.Add(rCalf.Name + rbFoot.Name, 1.0);
+        GraphNode rFibula = new GraphNode("fibula r");
+        rTibia.AddConnection(rFibula);
+        valuePairs.Add(rTibia.Name + rFibula.Name, 1.0);
+        node_list.Add(rFibula);
+
+        GraphNode rbFoot = new GraphNode("foot r");
+        rTibia.AddConnection(rbFoot);
+        valuePairs.Add(rTibia.Name + rbFoot.Name, 1.0);
         node_list.Add(rbFoot);
 
         GraphNode lFemur = new GraphNode("femur l");
@@ -116,14 +131,19 @@ public class normalCat : graphClass
         valuePairs.Add(pelvis.Name + lFemur.Name, 1.0);
         node_list.Add(lFemur);
 
-        GraphNode lCalf = new GraphNode("calf l");
-        lFemur.AddConnection(lCalf);
-        valuePairs.Add(lFemur.Name + lCalf.Name, 1.0);
-        node_list.Add(lCalf);
+        GraphNode lTibia = new GraphNode("tibia l");
+        lFemur.AddConnection(lTibia);
+        valuePairs.Add(lFemur.Name + lTibia.Name, 1.0);
+        node_list.Add(lTibia);
 
-        GraphNode lbFoot = new GraphNode("foot lb");
-        lCalf.AddConnection(lbFoot);
-        valuePairs.Add(lCalf.Name + lbFoot.Name, 1.0);
+        GraphNode lFibula = new GraphNode("fibula l");
+        lTibia.AddConnection(lFibula);
+        valuePairs.Add(lTibia.Name + lFibula.Name, 1.0);
+        node_list.Add(lFibula);
+
+        GraphNode lbFoot = new GraphNode("foot l");
+        lTibia.AddConnection(lbFoot);
+        valuePairs.Add(lTibia.Name + lbFoot.Name, 1.0);
         node_list.Add(lbFoot);
     }
 }

@@ -11,7 +11,7 @@ public class Unity3dOrbit : MonoBehaviour
     public float ySpeed = 120.0f;
 
     public float yMinLimit = -20f;
-    public float yMaxLimit = 80f;
+    public float yMaxLimit = -20f;
 
     public float distanceMin = .5f;
     public float distanceMax = 15f;
@@ -20,6 +20,9 @@ public class Unity3dOrbit : MonoBehaviour
 
     float x = 0.0f;
     float y = 0.0f;
+
+    float tx = 0.0f;
+    float ty = 0.0f;
 
     bool orbitable;
     bool move;
@@ -54,18 +57,20 @@ public class Unity3dOrbit : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             orbitable = true;
-            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) 
-            {
-                move = true;
-            } 
-            else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
-            {
-                move = false;
-            }
         }
         else if (Input.GetMouseButtonUp(0)) 
         {
             orbitable = false;
+        }
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && orbitable)
+        {
+            move = true;
+            Debug.Log("clicked");
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+        {
+            move = false;
+            Debug.Log("Unclicked");
         }
 
         if (orbitable)
@@ -74,9 +79,10 @@ public class Unity3dOrbit : MonoBehaviour
             {
                 if (move)
                 {
-                    Debug.Log(move);
-                    x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
-                    y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+                    tx -= Input.GetAxis("Mouse X");
+                    ty -= Input.GetAxis("Mouse Y");
+
+                    y = ClampAngle(y, yMinLimit, yMaxLimit);
                 }
                 else 
                 {
@@ -88,7 +94,9 @@ public class Unity3dOrbit : MonoBehaviour
             }
         }
         Quaternion rotation = Quaternion.Euler(y, x, 0);
+        Vector3 targetCoords = new Vector3(tx, ty, 0);
 
+        target.position = targetCoords;
         Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
         Vector3 position = rotation * negDistance + target.position;
         transform.rotation = rotation;

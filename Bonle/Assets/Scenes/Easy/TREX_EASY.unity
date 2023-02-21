@@ -1477,6 +1477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1078004472}
   - component: {fileID: 1078004474}
+  - component: {fileID: 1078004475}
   m_Layer: 0
   m_Name: Input
   m_TagString: Untagged
@@ -1520,9 +1521,21 @@ MonoBehaviour:
   skeleton: {fileID: 5713299738411439876}
   resetSkeleton: {fileID: 4900593126301289918}
   num: 0
-  graph: {fileID: 0}
+  graph: {fileID: 1078004475}
   Main: {fileID: 2072666628}
   GameOver: {fileID: 857703580}
+--- !u!114 &1078004475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078004470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afde1e854e5a2004782f75913a1fac64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1095102511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2321,6 +2334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: Title
   transistion: {fileID: 0}
+  difficulty: 
 --- !u!1 &1752809588
 GameObject:
   m_ObjectHideFlags: 0

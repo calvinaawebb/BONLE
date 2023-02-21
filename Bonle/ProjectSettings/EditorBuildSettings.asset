@@ -32,4 +32,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Normal/TREX_NORMAL.unity
     guid: d25b2376898cd2f4496860ea7b349e65
+  - enabled: 1
+    path: Assets/Scenes/Hard/CAT_HARD.unity
+    guid: 625f801dfba2f95448a4ded40a159079
+  - enabled: 1
+    path: Assets/Scenes/Hard/HUMAN_HARD.unity
+    guid: 4c0e4be71c711de4eb9b6019aef9b49e
+  - enabled: 1
+    path: Assets/Scenes/Hard/TREX_HARD.unity
+    guid: 7b4124a5f191ac145a20f35705060cc3
   m_configObjects: {}

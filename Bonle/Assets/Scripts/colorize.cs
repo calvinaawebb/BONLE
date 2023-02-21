@@ -22,7 +22,6 @@ public class colorize : MonoBehaviour
 
     public Dictionary<string, double> shortestdistance = new Dictionary<string, double>();
 
-
     public GraphNode guess;
     public GraphNode target;
 
@@ -33,13 +32,14 @@ public class colorize : MonoBehaviour
 
 
     // material.colors
-    private Color farthest;
-    private Color farther;
-    private Color far;
-    private Color close;
-    private Color closer;
-    private Color closest;
-    private Color based;
+    public Color[] colors;
+    private static Color farthest;
+    private static Color farther;
+    private static Color far;
+    private static Color close;
+    private static Color closer;
+    private static Color closest;
+    private static Color based;
 
     void Start()
     {
@@ -51,6 +51,8 @@ public class colorize : MonoBehaviour
         ColorUtility.TryParseHtmlString("#6F0000", out closest);
         ColorUtility.TryParseHtmlString("#FFFFFF", out based);
 
+        colors = new Color[] { closest, closer, close, far, farther, farthest };
+
         // Random Bone(randB) to use as target bone(tBone) using random number(num)
         num = UnityEngine.Random.Range(0, skeleton.transform.childCount);
         randB = skeleton.transform.GetChild(num);
@@ -61,6 +63,46 @@ public class colorize : MonoBehaviour
             num = UnityEngine.Random.Range(0, skeleton.transform.childCount);
             randB = skeleton.transform.GetChild(num);
             tBone = GameObject.Find(randB.name);
+        }
+    }
+
+    // Dijkstra's Algorithm: basically just takes the node I give it(target) and finds the shortest distance to all other nodes based off of their connections.
+    public void djk(GraphNode anchor, Dictionary<String, Double> dist, Dictionary<String, Double> edges)
+    {
+        foreach (GraphNode child in anchor.Children)
+        {
+            try
+            {
+                if (dist.ContainsKey(child.Name))
+                {
+                    if (dist[child.Name] > (edges[anchor.Name + child.Name] + dist[anchor.Name]))
+                    {
+                        dist[child.Name] = (edges[anchor.Name + child.Name] + dist[anchor.Name]);
+                    }
+                }
+                else
+                {
+                    dist.Add(child.Name, edges[anchor.Name + child.Name] + dist[anchor.Name]);
+                    prevNode.Add(child.Name, anchor.Name);
+                    djk(child, dist, edges);
+                }
+            }
+            catch (KeyNotFoundException e)
+            {
+                if (dist.ContainsKey(child.Name))
+                {
+                    if (dist[child.Name] > (edges[child.Name + anchor.Name] + dist[anchor.Name]))
+                    {
+                        dist[child.Name] = (edges[child.Name + anchor.Name] + dist[anchor.Name]);
+                    }
+                }
+                else
+                {
+                    dist.Add(child.Name, edges[child.Name + anchor.Name] + dist[anchor.Name]);
+                    prevNode.Add(child.Name, anchor.Name);
+                    djk(child, dist, edges);
+                }
+            }
         }
     }
 
@@ -90,6 +132,18 @@ public class colorize : MonoBehaviour
         }
     }
 
+    public void colorBone(Transform bone, double num, Color[] cols) 
+    {
+        try
+        {
+            bone.GetComponent<MeshRenderer>().material.color = cols[(int)num-1];
+        }
+        catch(IndexOutOfRangeException e) 
+        {
+            bone.GetComponent<MeshRenderer>().material.color = cols[cols.Length-1];
+        }
+    }
+
     public void activate()
     {
         // Getting the bone object
@@ -112,42 +166,9 @@ public class colorize : MonoBehaviour
             }
         }
 
-        // Dijkstra's Algorithm: basically just takes the node I give it(target) and finds the shortest distance to all other nodes based off of their connections.
-        void djk(GraphNode anchor) {
-            foreach (GraphNode child in anchor.Children)
-            {
-                try {
-                    if (shortestdistance.ContainsKey(child.Name))
-                    {
-                        if (shortestdistance[child.Name] > (graph.valuePairs[anchor.Name + child.Name] + shortestdistance[anchor.Name]))
-                        {
-                            shortestdistance[child.Name] = (graph.valuePairs[anchor.Name + child.Name] + shortestdistance[anchor.Name]);
-                        }
-                    } else {
-                        shortestdistance.Add(child.Name, graph.valuePairs[anchor.Name + child.Name] + shortestdistance[anchor.Name]);
-                        prevNode.Add(child.Name, anchor.Name);
-                        djk(child);
-                    }
-                }
-                catch (KeyNotFoundException e) {
-                    if (shortestdistance.ContainsKey(child.Name))
-                    {
-                        if (shortestdistance[child.Name] > (graph.valuePairs[child.Name + anchor.Name] + shortestdistance[anchor.Name]))
-                        {
-                            shortestdistance[child.Name] = (graph.valuePairs[child.Name + anchor.Name] + shortestdistance[anchor.Name]);
-                        }
-                    }
-                    else
-                    {
-                        shortestdistance.Add(child.Name, graph.valuePairs[child.Name + anchor.Name] + shortestdistance[anchor.Name]);
-                        prevNode.Add(child.Name, anchor.Name);
-                        djk(child);
-                    }
-                }
-            }
-        }
+        
         shortestdistance.Add(target.Name, 0);
-        djk(target);
+        djk(target, shortestdistance, graph.valuePairs);
         Debug.Log(shortestdistance.Count);
         foreach (var val in shortestdistance)
         {
@@ -169,60 +190,14 @@ public class colorize : MonoBehaviour
                 // For anybody seeing this later and thinking "why didnt he just use a switch" I am recycling old code and I dont want to make it a switch.
                 // If you are seeing this I was too lazy to just switch the ifs to a switch(haha).
                 try {
-                    if (shortestdistance[guess.Name] <= 1.5)
-                    {
-                        skeleB.GetComponent<MeshRenderer>().material.color = closest;
-                    }
-                    else if (shortestdistance[guess.Name] > 1.5 && shortestdistance[guess.Name] <= 2.5)
-                    {
-                        skeleB.GetComponent<MeshRenderer>().material.color = closer;
-                    }
-                    else if (shortestdistance[guess.Name] > 2.5 && shortestdistance[guess.Name] <= 3.5)
-                    {
-                        skeleB.GetComponent<MeshRenderer>().material.color = close;
-                    }
-                    else if (shortestdistance[guess.Name] > 3.5 && shortestdistance[guess.Name] <= 4.5)
-                    {
-                        skeleB.GetComponent<MeshRenderer>().material.color = far;
-                    }
-                    else if (shortestdistance[guess.Name] > 4.5 && shortestdistance[guess.Name] <= 6)
-                    {
-                        skeleB.GetComponent<MeshRenderer>().material.color = farther;
-                    }
-                    else if (shortestdistance[guess.Name] > 6)
-                    {
-                        skeleB.GetComponent<MeshRenderer>().material.color = farthest;
-                    }
+                    colorBone(skeleB, shortestdistance[guess.Name], colors);
                 }
                 catch (Exception e)  
                 {
                     for (int i = 0; i < skeleB.transform.childCount; i++) 
                     {
                         skeleA = skeleB.transform.GetChild(i);
-                        if (shortestdistance[guess.Name] <= 1.5)
-                        {
-                            skeleA.GetComponent<MeshRenderer>().material.color = closest;
-                        }
-                        else if (shortestdistance[guess.Name] > 1.5 && shortestdistance[guess.Name] <= 2.5)
-                        {
-                            skeleA.GetComponent<MeshRenderer>().material.color = closer;
-                        }
-                        else if (shortestdistance[guess.Name] > 2.5 && shortestdistance[guess.Name] <= 3.5)
-                        {
-                            skeleA.GetComponent<MeshRenderer>().material.color = close;
-                        }
-                        else if (shortestdistance[guess.Name] > 3.5 && shortestdistance[guess.Name] <= 4.5)
-                        {
-                            skeleA.GetComponent<MeshRenderer>().material.color = far;
-                        }
-                        else if (shortestdistance[guess.Name] > 4.5 && shortestdistance[guess.Name] <= 6)
-                        {
-                            skeleA.GetComponent<MeshRenderer>().material.color = farther;
-                        }
-                        else if (shortestdistance[guess.Name] > 6)
-                        {
-                            skeleA.GetComponent<MeshRenderer>().material.color = farthest;
-                        }
+                        colorBone(skeleA, shortestdistance[guess.Name], colors);
                     }
                 }
             }
