@@ -11,6 +11,8 @@ public class loadScene : MonoBehaviour
     public Animator transistion;
     public static float transistionTime = 1.1f;
     public string difficulty;
+    public GameObject slider;
+    public bool practice;
 
     // Start is called before the first frame update
     public void sceneLoad(string inpScene)
@@ -28,8 +30,15 @@ public class loadScene : MonoBehaviour
     {
         if (skeleType.Length != 0) 
         {
-            difficulty = skeleType + "_" + difficulty;
-            sceneLoad(difficulty);
+            if (practice) 
+            {
+                difficulty = skeleType + "_" + difficulty + "_PRACTICE" ;
+                sceneLoad(difficulty);
+            } else 
+            {
+                difficulty = skeleType + "_" + difficulty;
+                sceneLoad(difficulty);
+            }
         }
     }
 
@@ -40,19 +49,14 @@ public class loadScene : MonoBehaviour
         yield return new WaitForSeconds(transistionTime);
 
         Debug.Log("going in");
+        skeleType = gameObject.name;
         try 
         {
-            if (difficulty.Length != 0) 
-            {
-                difficultySet();
-            } else {
-                skeleType = gameObject.name;
-                Debug.Log("Switching");
-                sceneLoad(scene);
-            }
-        } catch (Exception e) {
-            skeleType = gameObject.name;
-            Debug.Log("Switching");
+            difficulties scrip = slider.GetComponent<difficulties>();
+            difficulty = scrip.inp.text;
+            difficultySet();
+        } 
+        catch (Exception e) {
             sceneLoad(scene);
         }
     }

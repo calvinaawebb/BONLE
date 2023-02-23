@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Easy/TREX_EASY.unity
     guid: 5bd628405a5c1a64c9c68dfd7af49f21
   - enabled: 1
-    path: Assets/Scenes/Difficulties.unity
-    guid: f334f21ca6ea667498947059558e451c
-  - enabled: 1
     path: Assets/Scenes/Normal/CAT_NORMAL.unity
     guid: f71b3e7a2d713854c86cab2abc84b19b
   - enabled: 1
@@ -41,4 +38,34 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hard/TREX_HARD.unity
     guid: 7b4124a5f191ac145a20f35705060cc3
+  - enabled: 1
+    path: Assets/Scenes/Selection - Practice.unity
+    guid: 3c1036c98489f6e419e539b980922cd3
+  - enabled: 1
+    path: Assets/Scenes/Easy - Practice/CAT_EASY_PRACTICE.unity
+    guid: 603ef2b4956dff24eb15fcdcd48f9e8f
+  - enabled: 1
+    path: Assets/Scenes/Easy - Practice/HUMAN_EASY_PRACTICE.unity
+    guid: a4735a607781f8645ae8f4437f397bbc
+  - enabled: 1
+    path: Assets/Scenes/Easy - Practice/TREX_EASY_PRACTICE.unity
+    guid: 7a64146dfceeca54ab5adbbc67bfdcb3
+  - enabled: 1
+    path: Assets/Scenes/Normal - Practice/CAT_NORMAL_PRACTICE.unity
+    guid: 8ff990c5db1f86c4db9734661bc08644
+  - enabled: 1
+    path: Assets/Scenes/Normal - Practice/HUMAN_NORMAL_PRACTICE.unity
+    guid: 768283142a049ff4d99584f5d984a5c8
+  - enabled: 1
+    path: Assets/Scenes/Normal - Practice/TREX_NORMAL_PRACTICE.unity
+    guid: 3c0d96f33c1f26648bdc8212389f9f2c
+  - enabled: 1
+    path: Assets/Scenes/Hard - Practice/CAT_HARD_PRACTICE.unity
+    guid: b7f5ecac225beaf4a9b6c4ba629c892b
+  - enabled: 1
+    path: Assets/Scenes/Hard - Practice/HUMAN_HARD_PRACTICE.unity
+    guid: df30d9b69c0e59f428681942fd14c600
+  - enabled: 1
+    path: Assets/Scenes/Hard - Practice/TREX_HARD_PRACTICE.unity
+    guid: 4d0c68f719b5eb5459336e83f34e0ad1
   m_configObjects: {}
