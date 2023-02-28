@@ -767,7 +767,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1878448576}
         m_TargetAssemblyTypeName: play, Assembly-CSharp
-        m_MethodName: Scene0
+        m_MethodName: Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1536,6 +1536,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 104424429}
+  ignore:
+    serializedVersion: 2
+    m_Bits: 0
   distance: 40
   xSpeed: 12
   ySpeed: 120

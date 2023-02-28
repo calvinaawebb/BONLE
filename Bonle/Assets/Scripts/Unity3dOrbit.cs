@@ -6,6 +6,7 @@ public class Unity3dOrbit : MonoBehaviour
 {
 
     public Transform target;
+    public LayerMask ignore;
     public float distance = 5.0f;
     public float xSpeed = 120.0f;
     public float ySpeed = 120.0f;
@@ -45,7 +46,7 @@ public class Unity3dOrbit : MonoBehaviour
 
     void Update() { 
         RaycastHit hit;
-        if (Physics.Linecast(target.position, transform.position, out hit))
+        if (Physics.Linecast(target.position, transform.position, out hit, ignore))
         {
             distance -= hit.distance;
         }

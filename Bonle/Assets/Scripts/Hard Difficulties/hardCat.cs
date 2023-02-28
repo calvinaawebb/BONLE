@@ -79,10 +79,10 @@ public class hardCat : graphClass
         valuePairs.Add(rCarpals.Name + rMetacarpals.Name, 1.0);
         node_list.Add(rMetacarpals);
 
-        GraphNode rfPhalanges = new GraphNode("phalanges rf");
-        rMetacarpals.AddConnection(rfPhalanges);
-        valuePairs.Add(rMetacarpals.Name + rfPhalanges.Name, 1.0);
-        node_list.Add(rfPhalanges);
+        GraphNode rManualPhalanges = new GraphNode("manual phalanges r");
+        rMetacarpals.AddConnection(rManualPhalanges);
+        valuePairs.Add(rMetacarpals.Name + rManualPhalanges.Name, 1.0);
+        node_list.Add(rManualPhalanges);
 
         GraphNode lHumerus = new GraphNode("humerus l");
         lScapula.AddConnection(lHumerus);
@@ -111,10 +111,10 @@ public class hardCat : graphClass
         valuePairs.Add(lCarpals.Name + lMetacarpals.Name, 1.0);
         node_list.Add(lMetacarpals);
 
-        GraphNode lfPhalanges = new GraphNode("phalanges lf");
-        lMetacarpals.AddConnection(lfPhalanges);
-        valuePairs.Add(lMetacarpals.Name + lfPhalanges.Name, 1.0);
-        node_list.Add(lfPhalanges);
+        GraphNode lManualPhalanges = new GraphNode("manual phalanges l");
+        lMetacarpals.AddConnection(lManualPhalanges);
+        valuePairs.Add(lMetacarpals.Name + lManualPhalanges.Name, 1.0);
+        node_list.Add(lManualPhalanges);
 
         GraphNode sacrum = new GraphNode("sacrum");
         lumbarVertebrae.AddConnection(sacrum);
@@ -156,10 +156,10 @@ public class hardCat : graphClass
         valuePairs.Add(rTarsals.Name + rMetatarsals.Name, 1.0);
         node_list.Add(rMetatarsals);
 
-        GraphNode rbphalanges = new GraphNode("phalanges rb");
-        rMetatarsals.AddConnection(rbphalanges);
-        valuePairs.Add(rMetatarsals.Name + rbphalanges.Name, 1.0);
-        node_list.Add(rbphalanges);
+        GraphNode rPedalPhalanges = new GraphNode("pedal phalanges r");
+        rMetatarsals.AddConnection(rPedalPhalanges);
+        valuePairs.Add(rMetatarsals.Name + rPedalPhalanges.Name, 1.0);
+        node_list.Add(rPedalPhalanges);
 
         GraphNode lFemur = new GraphNode("femur l");
         pelvis.AddConnection(lFemur);
@@ -186,10 +186,10 @@ public class hardCat : graphClass
         valuePairs.Add(lTarsals.Name + lMetatarsals.Name, 1.0);
         node_list.Add(lMetatarsals);
 
-        GraphNode lbphalanges = new GraphNode("phalanges lb");
-        lMetatarsals.AddConnection(lbphalanges);
-        valuePairs.Add(lMetatarsals.Name + lbphalanges.Name, 1.0);
-        node_list.Add(lbphalanges);
+        GraphNode lPedalPhalanges = new GraphNode("pedal phalanges l");
+        lMetatarsals.AddConnection(lPedalPhalanges);
+        valuePairs.Add(lMetatarsals.Name + lPedalPhalanges.Name, 1.0);
+        node_list.Add(lPedalPhalanges);
     }
 }
 
