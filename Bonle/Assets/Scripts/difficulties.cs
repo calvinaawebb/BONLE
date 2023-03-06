@@ -8,7 +8,7 @@ public class difficulties : MonoBehaviour
 {
     public Text inp;
     public GameObject inpObject;
-    public string[] difficultyList = new string[] {"Easy", "Normal", "Hard"};
+    public string[] difficultyList = new string[] {"EASY", "NORMAL", "HARD"};
     public int current;
 
     void Start() 

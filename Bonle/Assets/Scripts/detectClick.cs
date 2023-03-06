@@ -17,7 +17,6 @@ public class detectClick : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
-             
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);  
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit)) {   
@@ -28,7 +27,7 @@ public class detectClick : MonoBehaviour
                 if (hit.transform.name.Length != 0) {
                     String[] words = hit.transform.name.Split("_");  
                     outp.text = words[0];
-                    outpB.text = "You Type:" + words[1];
+                    outpB.text = "You Type: " + words[1];
                     hit.transform.GetComponent<MeshRenderer>().material = selected;
                     /*
                     for (int i = 0; i < hit.transform.childCount; i++) 

@@ -416,7 +416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 386738984}
   m_Layer: 0
-  m_Name: phalanges rb
+  m_Name: pedal phalanges r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -643,7 +643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 524020204}
   m_Layer: 0
-  m_Name: phalanges lb
+  m_Name: pedal phalanges l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -825,7 +825,7 @@ GameObject:
   m_Component:
   - component: {fileID: 642443460}
   m_Layer: 0
-  m_Name: phalanges rf
+  m_Name: manual phalanges r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1539,13 +1539,13 @@ MonoBehaviour:
   ignore:
     serializedVersion: 2
     m_Bits: 0
-  distance: 40
+  distance: 80
   xSpeed: 12
   ySpeed: 120
   yMinLimit: -534.1
   yMaxLimit: 121.67
   distanceMin: 0
-  distanceMax: 40
+  distanceMax: 80
 --- !u!1 &1048579576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,7 +1672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1076518173}
   m_Layer: 0
-  m_Name: phalanges lf
+  m_Name: manual phalanges l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2626,7 +2626,7 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1539116175
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2643,7 +2643,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!225 &1539116176
 CanvasGroup:
   m_ObjectHideFlags: 0

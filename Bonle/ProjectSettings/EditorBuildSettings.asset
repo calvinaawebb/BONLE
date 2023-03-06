@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Selection.unity
     guid: 77e38a47abaeb2a45b6e0dcaf1ea45a7
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 307df8dcbb8d6754bb64ca587f12db7f
+  - enabled: 1
     path: Assets/Scenes/Easy/CAT_EASY.unity
     guid: cdba139cc704ceb4287e068ea6693cf4
   - enabled: 1
