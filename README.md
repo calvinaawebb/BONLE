@@ -4,8 +4,8 @@
 # Inspiration
  I drew my inspiration from some of the most popular online games in the past few years such as [Wordle](https://www.nytimes.com/games/wordle/index.html "Wordle Official Site") and [Globle](https://globle-game.com/game "Globle Official Site"). These games both use a system of word based guessing in an effort to find a target word in the case of Wordle, and target country in the case of Globle. What I really wanted to replicate was the Hot/Cold algorithm employed in Globle to display the proximity of countries to one another.
 
-Spacial Hot/Cold:
-⋅⋅⋅The Spacial Hot/Cold algorithm uses the physical 3D space between objects to determine how far away they are, and hence what color they should be. The specific distances that it uses to color the objects is up to you and is often dependent on the units.
+Spacial Hot/Cold:<br/>
+*The Spacial Hot/Cold algorithm uses the physical 3D space between objects to determine how far away they are, and hence what color they should be. The specific distances that it uses to color the objects is up to you and is often dependent on the units.
 
-Node Based Hot/Cold:
-⋅⋅⋅The Node Based Hot/Cold algorithm instead uses the connections between objects to determine how far away in their “chain” or tree they are. The connections can be anything that connect those two objects specifically, for my project the connections represent whether or not the objects are touching each other. The algorithm that actually finds the shortest distance from node to node is called Dijkstra’s Algorithm, and while its not the fastest it works for my uses.
+Node Based Hot/Cold:<br/>
+*The Node Based Hot/Cold algorithm instead uses the connections between objects to determine how far away in their “chain” or tree they are. The connections can be anything that connect those two objects specifically, for my project the connections represent whether or not the objects are touching each other. The algorithm that actually finds the shortest distance from node to node is called Dijkstra’s Algorithm, and while its not the fastest it works for my uses.
