@@ -27,7 +27,12 @@ Class Diagram
 ![Class Diagram](classdiagram.png "Class Diagram")  
 
 
-# Selection Screen
+# Major UI
+
+Title Screen         
+:-------------------------:
+![Title Screen](title.png "Title Screen")
+
 * The selection screen is used to navigate through the models and each of the difficulties on each of the models. There are two selection screens in the game, one for the actual logic/main playing part of the game and another for the bone index, so you can choose which model and difficulty you want to practice.
 
 Selection Screen         
