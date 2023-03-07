@@ -15,3 +15,8 @@ Node Based Hot/Cold:<br/>
 Spacial             |  Node-Based
 :-------------------------:|:-------------------------:
 ![Spacial](spacial.png "Spacial")  |  ![Node-Based](node.png "Node-Based")
+
+
+Flowchart             
+:-------------------------:
+![Flowchart]flowchart.png "Flowchart")  
