@@ -2,11 +2,11 @@ using System.Collections;
 
 public class GraphNode
 {
-    //The Future Update
     private string _name;
     private ArrayList _parents;
     private ArrayList _children;
 
+    // Basis for my node system that allows me to tell the program which bones are connected and how far they are apart.
     public GraphNode(string name)
     {
         this._name = name;
@@ -23,6 +23,7 @@ public class GraphNode
         get => this._children;
     }
 
+    // Adding connections between bones.
     public void AddConnection(GraphNode node)
     {
         this._children.Add(node);

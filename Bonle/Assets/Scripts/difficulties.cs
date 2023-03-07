@@ -16,6 +16,7 @@ public class difficulties : MonoBehaviour
         inp = inpObject.GetComponent<Text>();  
     }
 
+    // Used to inumerate up in the different difficulties in the difficulty selectors.
     public void inumeraterUp() 
     {
         for (int i=0;i<difficultyList.Length;i++) 
@@ -35,6 +36,7 @@ public class difficulties : MonoBehaviour
         }
     }
 
+    // Used to inumerate down in the different difficulties in the difficulty selectors.
     public void inumeraterDown() 
     {
         for (int i=0;i<difficultyList.Length;i++) 

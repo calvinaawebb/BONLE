@@ -10,6 +10,7 @@ public class tutorial : MonoBehaviour
     public Sprite[] imagesList = new Sprite[4];
     public int current;
 
+    // Used to inumerate up in the slides of images in the tutorial.
     public void inumeraterUp()
     {
         for (int i = 0; i < imagesList.Length; i++)
@@ -29,6 +30,7 @@ public class tutorial : MonoBehaviour
         }
     }
 
+    // Used to inumerate down in the slides of images in the tutorial.
     public void inumeraterDown()
     {
         for (int i = 0; i < imagesList.Length; i++)

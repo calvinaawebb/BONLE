@@ -749,6 +749,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a099e32ad0bcc0c46997f3771cfce2c3, type: 3}
   - {fileID: 21300000, guid: f953c69eaa441c848aa3bba9da5d3729, type: 3}
   - {fileID: 21300000, guid: 79f4f457f616b3e47932b2122c8f969f, type: 3}
+  - {fileID: 21300000, guid: 1863883800d441148964c1ac629e257c, type: 3}
   current: 0
 --- !u!1 &1369649683
 GameObject:
@@ -1527,7 +1528,7 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2104885428
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1544,7 +1545,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!225 &2104885429
 CanvasGroup:
   m_ObjectHideFlags: 0

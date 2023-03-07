@@ -43,6 +43,7 @@ public class colorize : MonoBehaviour
 
     void Start()
     {
+        // Sets all the colors.
         ColorUtility.TryParseHtmlString("#FFC8C8", out farthest);
         ColorUtility.TryParseHtmlString("#FFAAAA", out farther);
         ColorUtility.TryParseHtmlString("#FF5353", out far);
@@ -53,11 +54,12 @@ public class colorize : MonoBehaviour
 
         colors = new Color[] { closest, closer, close, far, farther, farthest };
 
-        // Random Bone(randB) to use as target bone(tBone) using random number(num)
+        // Random Bone(randB) to use as target bone(tBone) using random number(num).
         num = UnityEngine.Random.Range(0, skeleton.transform.childCount);
         randB = skeleton.transform.GetChild(num);
         tBone = GameObject.Find(randB.name);
 
+        // Excuses the gameobject I use to center the camera when it is moving.
         while (tBone.name == "Orbit") 
         {
             num = UnityEngine.Random.Range(0, skeleton.transform.childCount);
@@ -106,6 +108,7 @@ public class colorize : MonoBehaviour
         }
     }
 
+    // Retry function that resets all of the bone meshes to their base color and regenerates the target bone so you can play again.
     public void Retry()
     {
         Main.enabled = true;
@@ -132,6 +135,7 @@ public class colorize : MonoBehaviour
         }
     }
 
+    // Simple optimization to make coloring a bone faster and take less space.
     public void colorBone(Transform bone, double num, Color[] cols) 
     {
         try
@@ -144,6 +148,7 @@ public class colorize : MonoBehaviour
         }
     }
 
+    // Main runtime of the logic where all the logic is combined to color the bones based of their nodal distance to the target.
     public void activate()
     {
         // Getting the bone object
@@ -166,19 +171,13 @@ public class colorize : MonoBehaviour
             }
         }
 
-        
+        // Activate dijkstra's algorithm.
         shortestdistance.Add(target.Name, 0);
         djk(target, shortestdistance, graph.valuePairs);
-        Debug.Log(shortestdistance.Count);
-        foreach (var val in shortestdistance)
-        {
-            Debug.Log("Key: " + val.Key + " Value: " + val.Value);
-        }
-        
+
+        // Process the input from the user and color the bones respectively as well as handle if player guess the right bone.
         if (guess.Name != null)
         {
-            Debug.Log(tBone);
-            Debug.Log("guess: " + guess.Name + " target: " + target.Name);
             if (guess.Name == target.Name)
             {
                 num = UnityEngine.Random.Range(0, skeleton.transform.childCount);
@@ -187,8 +186,6 @@ public class colorize : MonoBehaviour
             }
             else
             {
-                // For anybody seeing this later and thinking "why didnt he just use a switch" I am recycling old code and I dont want to make it a switch.
-                // If you are seeing this I was too lazy to just switch the ifs to a switch(haha).
                 try {
                     colorBone(skeleB, shortestdistance[guess.Name], colors);
                 }

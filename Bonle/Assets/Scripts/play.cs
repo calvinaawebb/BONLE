@@ -10,6 +10,7 @@ public class play : MonoBehaviour
     public Canvas Main;
     public Canvas GameOver;
     
+    // Used with the escape key to close the application.
     void Start() 
     {
         if(Input.GetKeyDown(KeyCode.Escape)) 
@@ -18,14 +19,13 @@ public class play : MonoBehaviour
         }
     }
 
-    public void Scene1()
-    {
-        SceneManager.LoadScene("Selection");
-    }
+    // Used with a UI button to close the application.
     public void Scene0() 
     {
         Application.Quit();
     }
+
+    // Used with a UI button to go back to the menu.
     public void Back() 
     {
         SceneManager.LoadScene("Title");

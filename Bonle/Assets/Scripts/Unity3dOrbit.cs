@@ -4,7 +4,7 @@ using System.Collections;
 [AddComponentMenu("Camera-Control/Mouse Orbit with zoom")]
 public class Unity3dOrbit : MonoBehaviour
 {
-
+    // Unity's built in orbit system  that I tweaked for my purposes.
     public Transform target;
     public LayerMask ignore;
     public float distance = 5.0f;
@@ -54,6 +54,7 @@ public class Unity3dOrbit : MonoBehaviour
 
     void LateUpdate()
     {
+        // Checking booleans to see if it is a valid time to move and in what way.
         distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 50, distanceMin, distanceMax);
         if (Input.GetMouseButtonDown(0))
         {
@@ -74,6 +75,7 @@ public class Unity3dOrbit : MonoBehaviour
             Debug.Log("Unclicked");
         }
 
+        // Assuming booleans are all fine, move.
         if (orbitable)
         {
             if (target)
@@ -104,6 +106,7 @@ public class Unity3dOrbit : MonoBehaviour
         transform.position = position;
     }
 
+    // Setting limits for how far it can turn according to screen width/height.
     public static float ClampAngle(float angle, float min, float max)
     {
         if (angle < -360F)

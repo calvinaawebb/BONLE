@@ -7,6 +7,7 @@ using static GraphNode;
 
 public class hardHuman : graphClass
 {
+    // Graph to be used by logic scripts later that denotes which bones touch which bones.
     void Start()
     {
         GraphNode cranium = new GraphNode("cranium");

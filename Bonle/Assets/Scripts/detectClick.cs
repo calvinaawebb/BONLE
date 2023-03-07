@@ -16,6 +16,7 @@ public class detectClick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Used to tell if you clicked a button in the bone index.
         if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);  
             RaycastHit hit;
