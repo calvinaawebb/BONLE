@@ -12,5 +12,6 @@ Spacial Hot/Cold:<br/>
 Node Based Hot/Cold:<br/>
 * The Node Based Hot/Cold algorithm instead uses the connections between objects to determine how far away in their “chain” or tree they are. The connections can be anything that connect those two objects specifically, for my project the connections represent whether or not the objects are touching each other. The algorithm that actually finds the shortest distance from node to node is called Dijkstra’s Algorithm, and while its not the fastest it works for my uses.
 
-![Spacial](spacial.png "Spacial")
-![Node-Based](node.png "Node-Based")
+Spacial             |  Node-Based
+:-------------------------:|:-------------------------:
+![Spacial](spacial.png "Spacial")  |  ![Node-Based](node.png "Node-Based")
