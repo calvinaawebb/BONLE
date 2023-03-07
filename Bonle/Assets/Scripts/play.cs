@@ -9,6 +9,14 @@ public class play : MonoBehaviour
     public Material based;
     public Canvas Main;
     public Canvas GameOver;
+    
+    void Start() 
+    {
+        if(Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            Application.Quit();
+        }
+    }
 
     public void Scene1()
     {
