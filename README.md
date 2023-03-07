@@ -33,3 +33,11 @@ Class Diagram
 Selection Screen         
 :-------------------------:
 ![Selection Screen](selection.png "Selection Screen")  
+
+
+# Credits
+* Due to the nature of the project, I did not attempt to make the models myself, as I assumed there were much more talented people who would be able to model anatomically correct models so in the title screen there is an option for credits, where I source each of the different copyrighted resources I used and what attribution they are under.
+
+Credits       
+:-------------------------:
+![Credits](credits.png "Credits")  
