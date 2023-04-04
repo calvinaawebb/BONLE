@@ -8,6 +8,7 @@ using static GraphNode;
 public class colorize : MonoBehaviour
 {
     public InputField input;
+    public Text guessOut;
     public Transform skeleB;
     public Transform skeleA;
     public GameObject bone;
@@ -17,6 +18,7 @@ public class colorize : MonoBehaviour
     public Transform resetSkeleton;
     public int num;
 
+    public static Dictionary<string, int> scoresc = new Dictionary<string, int>();
 
     public Dictionary<string, string> prevNode = new Dictionary<string, string>();
 
@@ -29,6 +31,8 @@ public class colorize : MonoBehaviour
 
     public Canvas Main;
     public Canvas GameOver;
+
+    public int guesses = 0;
 
 
     // material.colors
@@ -111,6 +115,7 @@ public class colorize : MonoBehaviour
     // Retry function that resets all of the bone meshes to their base color and regenerates the target bone so you can play again.
     public void Retry()
     {
+        guesses = 0;
         Main.enabled = true;
         GameOver.gameObject.SetActive(false);
         num = UnityEngine.Random.Range(0, skeleton.transform.childCount);
@@ -172,7 +177,10 @@ public class colorize : MonoBehaviour
         }
 
         // Activate dijkstra's algorithm.
-        shortestdistance.Add(target.Name, 0);
+        if (shortestdistance.ContainsKey(target.Name) == false) 
+        {
+            shortestdistance.Add(target.Name, 0);
+        }
         djk(target, shortestdistance, graph.valuePairs);
 
         // Process the input from the user and color the bones respectively as well as handle if player guess the right bone.
@@ -180,12 +188,16 @@ public class colorize : MonoBehaviour
         {
             if (guess.Name == target.Name)
             {
+                guesses += 1;
                 num = UnityEngine.Random.Range(0, skeleton.transform.childCount);
                 Main.enabled = false;
                 GameOver.gameObject.SetActive(true);
+                guessOut.text = "Number of Guesses: " + guesses;
+                scoresc.Add("Test: ", guesses);
             }
             else
             {
+                guesses += 1;
                 try {
                     colorBone(skeleB, shortestdistance[guess.Name], colors);
                 }
