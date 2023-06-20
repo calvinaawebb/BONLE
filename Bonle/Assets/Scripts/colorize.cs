@@ -1,5 +1,6 @@
 using System.Collections;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -193,7 +194,12 @@ public class colorize : MonoBehaviour
                 Main.enabled = false;
                 GameOver.gameObject.SetActive(true);
                 guessOut.text = "Number of Guesses: " + guesses;
-                scoresc.Add("Test: ", guesses);
+                scoresc.Add(getName.name, guesses);
+                Debug.Log("in");
+                for (int i= 0;i < scoresc.Count;i++)
+                {
+                    Debug.Log(scoresc.ElementAt(i).Key + " " + scoresc.ElementAt(i).Value);
+                }
             }
             else
             {
