@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static GraphNode;
+using UnityEngine.SceneManagement;
 
 public class colorize : MonoBehaviour
 {
@@ -71,6 +72,12 @@ public class colorize : MonoBehaviour
             randB = skeleton.transform.GetChild(num);
             tBone = GameObject.Find(randB.name);
         }
+    }
+
+    void Update() 
+    {
+        input.Select();
+        input.ActivateInputField();
     }
 
     // Dijkstra's Algorithm: basically just takes the node I give it(target) and finds the shortest distance to all other nodes based off of their connections.
@@ -194,7 +201,16 @@ public class colorize : MonoBehaviour
                 Main.enabled = false;
                 GameOver.gameObject.SetActive(true);
                 guessOut.text = "Number of Guesses: " + guesses;
-                scoresc.Add(getName.name, guesses);
+                try 
+                {
+                    scoresc.Add(getName.name + ":" + SceneManager.GetActiveScene().name, guesses);
+                } catch (Exception e) 
+                {
+                    if(scoresc[getName.name + ":" + SceneManager.GetActiveScene().name] > guesses) 
+                    {
+                        scoresc[getName.name + ":" + SceneManager.GetActiveScene().name] = guesses;
+                    } 
+                }
                 Debug.Log("in");
                 for (int i= 0;i < scoresc.Count;i++)
                 {
